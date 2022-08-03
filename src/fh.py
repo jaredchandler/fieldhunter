@@ -80,8 +80,10 @@ if __name__ == '__main__':
         (msglenfields, msgtypefields, hostidfields, sessionidfields, transidfields, accumulatorfields),
         key=lambda l: precedence[l.typelabel] )
     segmentedMessages, symbols = segmentedMessagesAndSymbols(sortedInferredTypes, messages)
+    print("HARNESSSTART")
     for s in symbols[:int(len(symbols)/2)]:
       print(" ".join([v.hex() for v in s.getCells()[0]]))
+    print("HARNESSEND")
     quit()
     inferenceDuration = time() - inferenceStart
     # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
